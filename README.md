@@ -20,17 +20,17 @@ Music-Player-School-Activity/
 ├── assets/
 │   ├── audio/
 │   │   ├── Aphrodite.mp3
-│   │   ├── Love.mp3
+│   │   ├── Love..mp3
 │   │   ├── pinkskies.mp3
 │   │   └── thick.mp3
 │   └── images/
 │       ├── aphrodite.jpg
-|       ├── hurts.jpg
-|       ├── pinkskies.jpg
-|       └── thick.jpg
+│       ├── love.jpg
+│       ├── pinkskies.jpg
+│       └── thick.jpg
 ├── src/
 │   ├── css/
-|   |    ├──styles.css
+│   │   └── styles.css
 │   ├── html/
 │   │   ├── index.html
 │   │   ├── about.html
@@ -38,3 +38,4 @@ Music-Player-School-Activity/
 │   └── script/
 │       └── script.js
 └── README.md
+```
