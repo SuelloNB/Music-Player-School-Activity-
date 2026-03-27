@@ -43,19 +43,34 @@ const playBtn = document.getElementById("play-btn");
 const nextBtn = document.getElementById("next-btn");
 const prevBtn = document.getElementById("prev-btn");
 
+const playerBeats = document.getElementById("player-beats");
+
 playBtn.addEventListener("click", playPause);
 nextBtn.addEventListener("click", nextSong);
 prevBtn.addEventListener("click", prevSong);
 
-window.addEventListener("resize", handleResponsiveLyrics);
-audio.addEventListener("timeupdate", updateLyricHighlight);
-audio.addEventListener("ended", nextSong);
+audio.addEventListener("play", startBeats);
+audio.addEventListener("pause", stopBeats);
+audio.addEventListener("ended", () => {
+    stopBeats();
+    nextSong();
+});
 
 window.onload = function () {
     currentSongIndex = 0;
     updateSong(false);
     handleResponsiveLyrics();
 };
+
+
+function startBeats() {
+    playerBeats.classList.add("playing");
+}
+
+function stopBeats() {
+    playerBeats.classList.remove("playing");
+}
+
 
 function buildTimedLyricsFromText(lyricsText, duration) {
     if (!lyricsText) return [];
@@ -148,6 +163,7 @@ function playPause() {
         audio.play()
             .then(() => {
                 playBtn.innerText = "Pause";
+                startBeats();
             })
             .catch(error => {
                 console.error("Play failed:", error);
@@ -155,6 +171,7 @@ function playPause() {
     } else {
         audio.pause();
         playBtn.innerText = "Play";
+        stopBeats();
     }
 }
 
@@ -198,13 +215,16 @@ async function updateSong(autoPlay = true) {
             audio.play()
                 .then(() => {
                     playBtn.innerText = "Pause";
+                    startBeats();
                 })
                 .catch(error => {
                     console.error("Autoplay failed:", error);
                     playBtn.innerText = "Play";
+                    stopBeats();
                 });
         } else {
             playBtn.innerText = "Play";
+            stopBeats();
         }
     };
 }

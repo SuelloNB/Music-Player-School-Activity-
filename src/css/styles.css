@@ -204,6 +204,12 @@ button:hover {
     background: linear-gradient(to top, #ff7b00, #ffb700, #ff4d6d, #7b2cff);
     box-shadow: 0 0 10px rgba(255, 123, 0, 0.35);
     animation: beatBars 1s ease-in-out infinite;
+    animation-play-state: paused;
+    transform-origin: bottom;
+}
+
+.player-beats.playing span {
+    animation-play-state: running;
 }
 
 .player-beats span:nth-child(1) { height: 20px; animation-delay: 0s; }
