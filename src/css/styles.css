@@ -14,6 +14,8 @@ body {
     font-family: Arial, sans-serif;
     background: linear-gradient(180deg, #f7f5df 0%, #efd59d 45%, #f28a57 100%);
     color: #2f1d00;
+    display: flex;
+    flex-direction: column;
 }
 
 /* HEADER */
@@ -59,7 +61,7 @@ body {
 
 /* HOME */
 .content {
-    min-height: calc(100vh - 90px);
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,12 +84,12 @@ body {
 
 /* MUSIC PAGE */
 .pcontainer {
-    min-height: calc(100vh - 90px);
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 2rem;
-    padding: 2.2rem 1.5rem;
+    padding: 1.5rem 1.5rem 1rem;
     flex-wrap: wrap;
 }
 
@@ -100,6 +102,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 28px rgba(108, 72, 12, 0.18);
     width: min(100%, 430px);
+    height: 520px;
 }
 
 .player {
@@ -107,13 +110,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 520px;
 }
 
 .lyricsContainer {
-    min-height: 520px;
-    max-height: 520px;
-    overflow-y: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
 }
 
@@ -264,12 +264,12 @@ button:hover {
 
 /* ABOUT */
 .aboutme {
-    min-height: calc(100vh - 90px);
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2rem 1.25rem;
+    padding: 1.5rem 1.25rem 1rem;
     max-width: 1100px;
     margin: 0 auto;
     text-align: center;
@@ -380,5 +380,60 @@ button:hover {
 
     .lyric-line {
         font-size: 0.98rem;
+    }
+}
+
+.site-footer {
+    width: 100%;
+    background: rgba(49, 45, 45, 0.96);
+    color: #f6d28b;
+    padding: 0.9rem 1rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 176, 46, 0.2);
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
+    color: #f3ddb0;
+}
+
+.footer-content p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-content strong {
+    color: #ffb02e;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 0.8rem 0.75rem;
+    }
+
+    .footer-content {
+        text-align: left;
+    }
+
+    .footer-content p {
+        font-size: 0.85rem;
+        line-height: 1.45;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 0.75rem 0.65rem;
+    }
+
+    .footer-content p {
+        font-size: 0.8rem;
     }
 }
