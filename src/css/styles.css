@@ -6,13 +6,14 @@
 
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #F6F8E2, #E0DDCA, #FCBC58, #F57C51);
-    color: #442a00;
+    background: linear-gradient(180deg, #f7f5df 0%, #efd59d 45%, #f28a57 100%);
+    color: #2f1d00;
 }
 
 /* HEADER */
@@ -22,33 +23,38 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 1.25rem;
-    background-color: #474444;
+    padding: 1.1rem 1.4rem;
+    background: rgba(49, 45, 45, 0.96);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     flex-wrap: wrap;
 }
 
 .header h1 {
-    color: #F5A623;
-    font-size: clamp(1.4rem, 2vw, 2rem);
+    color: #ffb02e;
+    font-size: clamp(1.5rem, 2vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 .header nav ul {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     list-style: none;
     flex-wrap: wrap;
 }
 
 .header a {
     text-decoration: none;
-    color: #F5A623;
-    font-size: 1rem;
-    transition: 0.2s ease;
+    color: #ffb02e;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .header a:hover {
     color: #ffd27a;
+    transform: translateY(-1px);
 }
 
 /* HOME */
@@ -63,14 +69,14 @@ body {
 }
 
 .content h1 {
-    color: #bf7600;
-    font-size: clamp(2rem, 6vw, 5rem);
+    color: #9c5500;
+    font-size: clamp(2.2rem, 6vw, 5rem);
     margin-bottom: 1rem;
 }
 
 .content p {
-    color: #442a00;
-    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    color: #4b2d00;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
     margin-bottom: 0.5rem;
 }
 
@@ -79,20 +85,21 @@ body {
     min-height: calc(100vh - 90px);
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 2rem;
-    padding: 2rem;
+    padding: 2.2rem 1.5rem;
     flex-wrap: wrap;
 }
 
 .player,
 .lyricsContainer {
-    background: rgba(44, 44, 44, 0.15);
-    backdrop-filter: blur(4px);
-    padding: 1.25rem;
-    border-radius: 16px;
-    box-shadow: 0 0 15px rgba(143, 114, 0, 0.25);
-    width: min(100%, 420px);
+    background: rgba(255, 245, 220, 0.42);
+    border: 1px solid rgba(120, 80, 20, 0.12);
+    backdrop-filter: blur(10px);
+    padding: 1.4rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(108, 72, 12, 0.18);
+    width: min(100%, 430px);
 }
 
 .player {
@@ -100,12 +107,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 480px;
+    min-height: 520px;
 }
 
 .lyricsContainer {
-    min-height: 480px;
-    max-height: 480px;
+    min-height: 520px;
+    max-height: 520px;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -115,26 +122,33 @@ body {
 }
 
 .lyricsContainer::-webkit-scrollbar-thumb {
-    background: rgba(97, 60, 0, 0.35);
-    border-radius: 10px;
+    background: rgba(107, 72, 17, 0.45);
+    border-radius: 999px;
 }
 
+.lyricsContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* PLAYER */
 .player img {
-    width: min(100%, 220px);
+    width: min(100%, 235px);
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 14px;
     display: block;
     margin-top: 0.5rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .player h2 {
-    color: #1e1300;
+    color: #211200;
     text-align: center;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    margin-top: 1.2rem;
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+    font-weight: 700;
+    margin-top: 1.4rem;
     min-height: 3rem;
+    line-height: 1.3;
 }
 
 #audio {
@@ -146,51 +160,60 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.85rem;
     flex-wrap: wrap;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 button {
-    background: #111;
+    background: #101010;
     border: none;
-    color: #bf7600;
-    padding: 0.9rem 1rem;
-    min-width: 100px;
-    border-radius: 10px;
+    color: #f5a000;
+    padding: 0.95rem 1.2rem;
+    min-width: 110px;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 1rem;
-    transition: 0.2s ease;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
 
 button:hover {
-    background: #ff8000;
-    color: #1e1300;
+    background: #ff9c1a;
+    color: #241400;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
 }
 
 /* LYRICS */
 #lyrics {
-    color: #613c00;
+    color: #5f3c07;
     position: relative;
+    padding-right: 0.25rem;
 }
 
 .lyric-line {
-    opacity: 0.38;
-    margin: 0.6rem 0;
-    line-height: 1.75;
-    transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
-    font-size: 1rem;
+    opacity: 0.62;
+    margin: 0.75rem 0;
+    line-height: 1.8;
+    transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease, background 0.25s ease;
+    font-size: 1.05rem;
+    padding: 0.2rem 0.35rem;
+    border-radius: 8px;
 }
 
 .active-lyric {
     opacity: 1;
-    color: #bf7600;
-    font-weight: bold;
+    color: #b86a00;
+    font-weight: 700;
     transform: scale(1.02);
+    background: rgba(255, 176, 46, 0.14);
 }
 
 .past-lyric {
-    opacity: 0.7;
+    opacity: 0.78;
+    color: #805313;
 }
 
 /* ABOUT */
@@ -207,15 +230,15 @@ button:hover {
 }
 
 .aboutme h1 {
-    color: #bf7600;
-    font-size: clamp(2rem, 6vw, 5rem);
+    color: #9c5500;
+    font-size: clamp(2.2rem, 6vw, 5rem);
     margin-bottom: 1.5rem;
 }
 
 .aboutme p {
-    color: #442a00;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    line-height: 1.8;
+    color: #4b2d00;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.9;
     margin-bottom: 1rem;
 }
 
@@ -223,12 +246,12 @@ button:hover {
 @media (max-width: 992px) {
     .pcontainer {
         gap: 1.5rem;
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
     }
 
     .player,
     .lyricsContainer {
-        width: min(100%, 500px);
+        width: min(100%, 520px);
     }
 }
 
@@ -257,7 +280,7 @@ button:hover {
     }
 
     .lyricsContainer {
-        max-height: 320px;
+        max-height: 340px;
     }
 
     .controls {
@@ -301,15 +324,15 @@ button:hover {
     }
 
     .player img {
-        width: min(100%, 180px);
+        width: min(100%, 190px);
     }
 
     button {
         font-size: 0.95rem;
-        padding: 0.85rem;
+        padding: 0.9rem;
     }
 
     .lyric-line {
-        font-size: 0.95rem;
+        font-size: 0.98rem;
     }
 }
